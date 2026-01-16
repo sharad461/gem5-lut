@@ -2,7 +2,8 @@
 #include <stdint.h>
 
 // Base address where the Huffman LUT is mapped
-#define HUFFMAN_LUT_BASE 0x10000000UL
+//#define HUFFMAN_LUT_BASE 0x10000000UL
+#define HUFFMAN_LUT_BASE 0x200000000UL
 
 // Function to perform a lookup
 uint32_t huffman_lookup(uint32_t encoded) {

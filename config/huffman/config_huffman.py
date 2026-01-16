@@ -17,7 +17,8 @@ system.clk_domain.voltage_domain = VoltageDomain()
 
 # Set up memory
 system.mem_mode = 'timing'
-system.mem_ranges = [AddrRange('512MB')]
+# system.mem_ranges = [AddrRange('512MB')]
+system.mem_ranges = [AddrRange('8192MB')]
 
 # Create CPU
 system.cpu = X86TimingSimpleCPU()
@@ -25,7 +26,8 @@ system.cpu = X86TimingSimpleCPU()
 # Create the Huffman LUT
 # Map it to a specific memory address range
 system.huffman_lut = HuffmanLUT()
-system.huffman_lut.addr_range = AddrRange(0x10000000, size='4kB')
+# system.huffman_lut.addr_range = AddrRange(0x10000000, size='4kB')
+system.huffman_lut.addr_range = AddrRange(0x200000000, size='4kB')  # At 8GB
 system.huffman_lut.latency = 10  # 10 cycles per lookup
 
 # Create memory bus
