@@ -17,8 +17,7 @@ system.clk_domain.voltage_domain = VoltageDomain()
 
 # Set up memory
 system.mem_mode = 'timing'
-# system.mem_ranges = [AddrRange('512MB')]
-system.mem_ranges = [AddrRange('8192MB')]
+system.mem_ranges = [AddrRange('512MB')]
 
 # Create CPU
 system.cpu = X86TimingSimpleCPU()
@@ -36,12 +35,8 @@ system.membus = SystemXBar()
 system.cpu.icache_port = system.membus.cpu_side_ports
 system.cpu.dcache_port = system.membus.cpu_side_ports
 
-system.iobus = IOXBar()
-system.iobus.mem_side_ports = system.membus.cpu_side_ports
-
 # Connect Huffman LUT to membus
-# system.huffman_lut.port = system.membus.mem_side_ports
-system.huffman_lut.port = system.iobus.mem_side_ports
+system.huffman_lut.port = system.membus.mem_side_ports
 
 # Create memory controller
 system.mem_ctrl = MemCtrl()
